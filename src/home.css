@@ -1,5 +1,5 @@
 .home {
-  margin-top: 5rem;
+  padding-top: 5rem;
 }
 
 .home_title {
@@ -27,4 +27,10 @@
 
 .home_calculatorLink:hover {
   background: #f0f0f0;
+}
+
+@media (max-width: 551px) {
+  .home {
+    padding-top: 2rem;
+  }
 }

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import IconChevronLeft from "materialish/icon-chevron-left";
-import { formatForDisplay } from "../../vendor/@moolah/lib";
+import { formatForDisplay, inflationFromCpi } from "../../vendor/@moolah/lib";
 import Input from "../../common/input";
 import usePageTitle from "../../hooks/use-page-title";
 import useConfigForm from "../../hooks/use-config-form";
 import useCalculatorState from "../../hooks/use-calculator-state/index";
+import marketDataByYear from "../../utils/market-data-by-year";
 
 const formConfig = {
   startValue: {
@@ -22,6 +23,19 @@ const formConfig = {
   },
 };
 
+function computeResult(inputs) {
+  const { startValue, startYear, endYear } = inputs;
+
+  const marketData = marketDataByYear();
+  const startCpi = marketData[startYear].cpi;
+  const endCpi = marketData[endYear].cpi;
+
+  const inflation = inflationFromCpi({ startCpi, endCpi });
+
+  const rawNumber = Number(startValue) / inflation;
+  return rawNumber;
+}
+
 function useThisState() {
   return useCalculatorState(formConfig);
 }
@@ -34,7 +48,7 @@ export default function PurchasingPowerOverTime() {
     useSourceOfTruth: useThisState,
   });
 
-  const result = 8300.34;
+  const result = useMemo(() => computeResult(state), [state]);
 
   return (
     <div className="calculatorPage">

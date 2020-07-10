@@ -134,3 +134,17 @@
 .calculator_largeInput {
   font-size: 1.25rem;
 }
+
+@media (max-width: 551px) {
+  .calculatorPage {
+    padding-top: 2rem;
+  }
+
+  .calculator_row {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator_resultsDescription {
+    max-width: none;
+  }
+}
