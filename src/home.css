@@ -1,0 +1,26 @@
+.home {
+  margin-top: 5rem;
+}
+
+.home_title {
+  text-align: center;
+  margin: 0 0 0.5rem;
+}
+
+.home_logo {
+  width: 284px;
+}
+
+.home_subtitle {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.home_calculatorLink {
+  color: #282828;
+  display: block;
+  background: #f6f6f6;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

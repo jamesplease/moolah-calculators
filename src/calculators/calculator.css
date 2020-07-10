@@ -1,0 +1,135 @@
+.calculatorPage {
+  padding: 5rem 0 5rem;
+}
+
+.calculatorPage_backLink {
+  color: var(--mainColor);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -4px;
+}
+
+.calculatorPage_backLinkIcon {
+  fill: var(--mainColor);
+}
+
+.calculatorPage_title {
+  font-size: 2.1875rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.calculatorPage_subtitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin-bottom: 2.75rem;
+}
+
+.calculatorPage_description {
+  line-height: 1.65;
+  margin-bottom: 2.75rem;
+}
+
+.calculatorPage_learnMoreBtn {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: 0;
+  color: var(--mainColor);
+}
+
+.calculator {
+  border-radius: 13px;
+  background: #f6f6f6;
+}
+
+.calculator_form {
+  padding: 1.5rem;
+  border-bottom: 3px solid #e9e9e9;
+}
+
+.calculator_results {
+  position: relative;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.calculator_resultsTitle {
+  font-weight: bold;
+  font-size: 1rem;
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  margin: 0;
+  color: #717171;
+}
+
+.calculator_resultsLargeNumber {
+  font-size: 1.875rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0.85rem;
+}
+
+.calculator_resultsDescription {
+  color: #424242;
+  font-size: 0.875rem;
+  margin: 0 auto 1.375rem;
+  max-width: 70%;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.calculator_shareBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.calculator_shareBtn {
+  font-size: 0.875rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #5b36ff;
+  border: none;
+  padding: 0.5em 1em;
+  background: #edeaf6;
+}
+
+.inputLabel_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.inputLabel {
+  display: block;
+  color: #717171;
+  font-size: 1rem;
+  font-weight: bold;
+  flex-grow: 0;
+  line-height: 1.35;
+}
+
+.inputLabel-disabled {
+  opacity: 0.5;
+}
+
+.calculator_row {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.calculator_row:last-child {
+  margin-bottom: 0;
+}
+
+.calculator_largeInput {
+  font-size: 1.25rem;
+}
