@@ -66,9 +66,9 @@ export default function PurchasingPowerOverTime() {
         phenomenon is called inflation. What this means is that if you receive
         $1 and choose to hold onto it, that dollar will progressively become
         less valuable as years pass.{" "}
-        <button type="button" className="calculatorPage_learnMoreBtn">
+        {/* <button type="button" className="calculatorPage_learnMoreBtn">
           Learn more.
-        </button>
+        </button> */}
       </div>
 
       <div className="calculator">
@@ -142,11 +142,11 @@ export default function PurchasingPowerOverTime() {
             {state.startYear} will only have the purchasing power of{" "}
             <b>{formatForDisplay(result)}</b> in the year {state.endYear}.
           </div>
-          <div className="calculator_shareBtnContainer">
+          {/* <div className="calculator_shareBtnContainer">
             <button type="button" className="calculator_shareBtn">
               Share this result
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
