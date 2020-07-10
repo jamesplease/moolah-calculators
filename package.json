@@ -6,6 +6,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "constate": "^2.0.0",
+    "core-hooks": "^1.0.1",
+    "lodash": "^4.17.19",
     "materialish": "^0.17.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -35,6 +38,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/lodash": "^4.14.157",
     "@types/react": "^16.9.42",
     "typescript": "^3.9.6"
   }
