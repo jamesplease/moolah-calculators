@@ -24,3 +24,7 @@
   padding: 1rem;
   margin-bottom: 1rem;
 }
+
+.home_calculatorLink:hover {
+  background: #f0f0f0;
+}
