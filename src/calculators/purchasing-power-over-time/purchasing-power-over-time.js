@@ -1,27 +1,19 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import IconChevronLeft from "materialish/icon-chevron-left";
+import { useConstant } from "core-hooks";
 import { formatForDisplay, inflationFromCpi } from "../../vendor/@moolah/lib";
 import Input from "../../common/input";
 import usePageTitle from "../../hooks/use-page-title";
 import useConfigForm from "../../hooks/use-config-form";
 import useCalculatorState from "../../hooks/use-calculator-state/index";
 import marketDataByYear from "../../utils/market-data-by-year";
-
-const formConfig = {
-  startValue: {
-    type: "number",
-    initialValue: 10000,
-  },
-  startYear: {
-    type: "number",
-    initialValue: 2010,
-  },
-  endYear: {
-    type: "number",
-    initialValue: 2020,
-  },
-};
+import {
+  withinYearLimit,
+  lessThanValue,
+  greaterThanValue,
+} from "../../utils/validators";
+import { years, dollars } from "../../utils/common-validators";
 
 function computeResult(inputs) {
   const { startValue, startYear, endYear } = inputs;
@@ -36,16 +28,32 @@ function computeResult(inputs) {
   return rawNumber;
 }
 
-function useThisState() {
-  return useCalculatorState(formConfig);
-}
-
 export default function PurchasingPowerOverTime() {
   usePageTitle("Purchasing Power Over Time");
 
+  const formConfig = useConstant(() => {
+    return {
+      startValue: {
+        type: "number",
+        initialValue: 10000,
+        validators: [...dollars],
+      },
+      startYear: {
+        type: "number",
+        initialValue: 2010,
+        validators: [...years, withinYearLimit, lessThanValue("endYear")],
+      },
+      endYear: {
+        type: "number",
+        initialValue: 2020,
+        validators: [...years, withinYearLimit, greaterThanValue("startYear")],
+      },
+    };
+  });
+
   const { state, getProps } = useConfigForm({
     formConfig,
-    useSourceOfTruth: useThisState,
+    useSourceOfTruth: () => useCalculatorState(formConfig),
   });
 
   const result = useMemo(() => computeResult(state), [state]);

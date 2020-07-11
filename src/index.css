@@ -1,4 +1,6 @@
-@import "./calculators//calculator.css";
+@import "./styles/normalize.css";
+@import "./styles/cursor.css";
+@import "./calculators/calculator.css";
 
 :root {
   --mainColor: #5b36ff;
