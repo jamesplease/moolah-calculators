@@ -20,6 +20,9 @@ export default function Home() {
         A collection of personal finance calculators.
       </div>
       <div>
+        <a href="https://ficalc.app" className="home_calculatorLink">
+          FI Calc
+        </a>
         {calculatorList.map((calculator) => (
           <Link
             className="home_calculatorLink"
