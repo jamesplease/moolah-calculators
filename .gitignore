@@ -23,3 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .vercel
+
+package-lock.json
+package-lock.json.*
+yarn.lock
