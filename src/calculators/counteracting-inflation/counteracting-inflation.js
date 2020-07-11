@@ -41,7 +41,7 @@ function useThisState() {
 }
 
 export default function CounteractingInflation() {
-  usePageTitle("Purchasing Power Over Time");
+  usePageTitle("Counteracting Inflation");
 
   const { state, getProps } = useConfigForm({
     formConfig,

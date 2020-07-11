@@ -40,8 +40,8 @@ function useThisState() {
   return useCalculatorState(formConfig);
 }
 
-export default function CounteractInflation() {
-  usePageTitle("Counteract Inflation");
+export default function PurchasingPowerOverTime() {
+  usePageTitle("Purchasing Power Over Time");
 
   const { state, getProps } = useConfigForm({
     formConfig,
