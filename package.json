@@ -22,7 +22,9 @@
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "vercel --confirm",
+    "deploy-prod": "vercel --confirm --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,6 +45,7 @@
     "@types/classnames": "^2.2.10",
     "@types/lodash": "^4.14.157",
     "@types/react": "^16.9.42",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "vercel": "^19.1.2"
   }
 }
