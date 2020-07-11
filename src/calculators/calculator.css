@@ -81,7 +81,8 @@
 .calculator_resultsDescription {
   color: #424242;
   font-size: 0.875rem;
-  margin: 0 auto 1.375rem;
+  margin: 0 auto;
+  /* margin: 0 auto 1.375rem; */
   max-width: 75%;
   line-height: 1.65;
   text-align: center;
@@ -122,6 +123,7 @@
 }
 
 .calculator_row {
+  max-width: 100%;
   margin-bottom: 2rem;
   display: grid;
   grid-gap: 2rem;
@@ -141,11 +143,25 @@
     padding-top: 2rem;
   }
 
+  .calculator {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .calculator_form {
+    padding: 1rem 0;
+  }
+
   .calculator_row {
     grid-template-columns: 1fr;
   }
 
   .calculator_resultsDescription {
     max-width: none;
+  }
+
+  .calculator_resultsTitle {
+    left: 1rem;
   }
 }

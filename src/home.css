@@ -9,6 +9,7 @@
 
 .home_logo {
   width: 284px;
+  max-width: 90%;
 }
 
 .home_subtitle {
