@@ -32,7 +32,7 @@ function computeResult(inputs) {
 
   const inflation = inflationFromCpi({ startCpi, endCpi });
 
-  const rawNumber = Number(startValue) / inflation;
+  const rawNumber = Number(startValue) * inflation;
   return rawNumber;
 }
 
@@ -40,8 +40,8 @@ function useThisState() {
   return useCalculatorState(formConfig);
 }
 
-export default function CounteractInflation() {
-  usePageTitle("Counteract Inflation");
+export default function CounteractingInflation() {
+  usePageTitle("Purchasing Power Over Time");
 
   const { state, getProps } = useConfigForm({
     formConfig,
@@ -59,19 +59,20 @@ export default function CounteractInflation() {
         />
         View other calculators
       </Link>
-      <h1 className="calculatorPage_title">Purchasing Power Over Time</h1>
+      <h1 className="calculatorPage_title">Counteracting Inflation</h1>
       <div className="calculatorPage_subtitle">Calculator</div>
       <div className="calculatorPage_description">
         <p>
           Over time, the purchasing power of the dollar tends to decrease: this
-          phenomenon is called inflation. What this means is that if you receive
-          $1 and choose to hold onto it, that dollar will progressively become
-          less valuable as years pass.
+          phenomenon is called inflation. Maintaining a constant purchasing
+          power ("counteracting" inflation) typically requires possessing a
+          larger amount of dollars in future years.
         </p>
         <p>
-          This calculator uses historical data to show you the impact that
-          inflation has had on the U.S. dollar.
-        </p>{" "}
+          This calculator shows you how many dollars you would need in a
+          particular year to maintain the same purchasing power as you started
+          with.
+        </p>
         {/* <button type="button" className="calculatorPage_learnMoreBtn">
           Learn more.
         </button> */}
@@ -144,9 +145,10 @@ export default function CounteractInflation() {
             {formatForDisplay(result)}
           </div>
           <div className="calculator_resultsDescription">
-            <b>{formatForDisplay(state.startValue)}</b> in the year{" "}
-            {state.startYear} will only have the purchasing power of{" "}
-            <b>{formatForDisplay(result)}</b> in the year {state.endYear}.
+            <b>{formatForDisplay(result)}</b> in the year {state.endYear} has
+            the same purchasing power that{" "}
+            <b>{formatForDisplay(state.startValue)}</b> had in the year{" "}
+            {state.startYear}.
           </div>
           {/* <div className="calculator_shareBtnContainer">
             <button type="button" className="calculator_shareBtn">

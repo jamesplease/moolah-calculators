@@ -79,6 +79,14 @@ input[type="number"] {
   cursor: text;
 }
 
+.input:hover .input_visuals {
+  background: #e6e6e6;
+}
+
+.input:focus-within .input_visuals {
+  background: #ececec;
+}
+
 .input-year input {
   width: 4.5rem;
 }

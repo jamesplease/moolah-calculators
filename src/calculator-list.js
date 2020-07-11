@@ -1,4 +1,5 @@
 import PurchasingPowerOverTime from "./calculators/purchasing-power-over-time/purchasing-power-over-time";
+import CounteractingInflation from "./calculators/counteracting-inflation/counteracting-inflation";
 
 export default [
   {
@@ -8,8 +9,8 @@ export default [
   },
 
   {
-    url: "/counteract-inflation",
-    name: "Counteract Inflation",
-    Component: PurchasingPowerOverTime,
+    url: "/counteracting-inflation",
+    name: "Counteracting Inflation",
+    Component: CounteractingInflation,
   },
 ];
