@@ -143,6 +143,10 @@
     padding-top: 2rem;
   }
 
+  .calculatorPage_title {
+    margin-bottom: 0.5rem;
+  }
+
   .calculator {
     border-radius: 0;
     border-left: none;
@@ -159,6 +163,7 @@
 
   .calculator_resultsDescription {
     max-width: none;
+    font-size: 0.9375rem;
   }
 
   .calculator_resultsTitle {
