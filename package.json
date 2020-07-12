@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^7.1.2",
     "constate": "^2.0.0",
     "core-hooks": "^1.1.0-beta.0",
+    "focus-trap-react": "7.0.1",
     "lodash": "^4.17.19",
     "materialish": "^0.17.2",
+    "no-scroll": "2.1.1",
     "query-history": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -44,7 +46,10 @@
   "devDependencies": {
     "@types/classnames": "^2.2.10",
     "@types/lodash": "^4.14.157",
+    "@types/no-scroll": "2.1.0",
     "@types/react": "^16.9.42",
+    "@types/react-dom": "16.9.8",
+    "@types/react-router-dom": "5.1.5",
     "typescript": "^3.9.6",
     "vercel": "^19.1.2"
   }

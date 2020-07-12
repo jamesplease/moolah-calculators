@@ -1,9 +1,14 @@
 @import "./styles/normalize.css";
+
+@import "./vendor/good-modal/good-modal.css";
+
+@import "./common/modal.css";
 @import "./styles/cursor.css";
 @import "./calculators/calculator.css";
 
 :root {
   --mainColor: #5b36ff;
+  --containerBorderColor: #ccc;
 }
 
 a {

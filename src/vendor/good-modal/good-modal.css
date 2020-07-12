@@ -1,0 +1,86 @@
+#good-modal-root > div {
+  /* We want to be certain that our modals appear above the rest of the application */
+  z-index: 100000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.goodModal_overlay {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity var(--goodModal-timeoutMs)
+    cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.goodModal_overlay-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.goodModal {
+  --goodModal-width: 600px;
+
+  --goodModal-contentPadding: 0.85em;
+  --goodModal-footerPaddingBottom: 0.85em;
+  --goodModal-borderColor: #ddd;
+
+  z-index: 2;
+  position: relative;
+  width: var(--goodModal-width);
+  max-width: 93%;
+  top: 5vh;
+  max-height: 85vh;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.7);
+  will-change: opacity, transform;
+  transition: all var(--goodModal-timeoutMs) cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.goodModal-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.08);
+}
+
+.goodModal_title {
+  flex-shrink: 0;
+  padding: var(--goodModal-contentPadding);
+  font-size: 1.25em;
+  border-bottom: 1px solid var(--goodModal-borderColor);
+}
+
+.goodModal_body {
+  padding: var(--goodModal-contentPadding);
+  padding-top: 0;
+  /* margin-top: var(--goodModal-contentPadding); */
+  flex: 1;
+  overflow-y: auto;
+}
+
+.goodModal_footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--goodModal-borderColor);
+  padding: var(--goodModal-contentPadding) var(--goodModal-contentPadding)
+    var(--goodModal-footerPaddingBottom);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

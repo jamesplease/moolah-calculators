@@ -1,8 +1,9 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import _ from "lodash";
 import { useCurrentRef } from "core-hooks";
 import { useForm } from "../../vendor/form";
 import useUndo from "./hooks/undo-history";
+import applyInitialValue from "./utils/apply-initial-value";
 import reactOnInputBlur from "./react-on-input-blur";
 import { SelectConfig, EnsureFormConfig } from "../../vendor/form/types";
 
@@ -27,8 +28,16 @@ export default function useConfigForm<K extends EnsureFormConfig<K>>({
   // query param values.
   const { state, setState } = useSourceOfTruth();
 
+  const formOptions = useMemo(
+    () => {
+      return applyInitialValue(formConfig, state);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  ) as any;
+
   const { addReverseAction } = useUndo();
-  const { inputs, updateInputs } = useForm<K>(formConfig);
+  const { inputs, updateInputs } = useForm<K>(formOptions);
 
   const inputsRef = useCurrentRef(inputs);
   const stateRef = useCurrentRef(state);
