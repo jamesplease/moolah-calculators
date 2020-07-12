@@ -4,6 +4,7 @@ import { Router } from "react-router-dom";
 import ReactGA from "react-ga";
 import createQueryHistory from "query-history";
 import "./index.css";
+import { WindowInnerHeightProvider } from "./hooks/use-window-inner-height";
 import { UndoProvider } from "./hooks/use-config-form";
 import App from "./app";
 import registerGoogleAnalytics from "./utils/register-google-analytics";
@@ -26,9 +27,11 @@ if (isProduction && window.location.hostname === "calculators.moolah.app") {
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
-      <UndoProvider>
-        <App />
-      </UndoProvider>
+      <WindowInnerHeightProvider>
+        <UndoProvider>
+          <App />
+        </UndoProvider>
+      </WindowInnerHeightProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
