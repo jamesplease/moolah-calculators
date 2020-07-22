@@ -89,13 +89,13 @@ export default function PurchasingPowerOverTime() {
           <p>
             This calculator uses historical data to show you the impact that
             inflation has had on the U.S. dollar.{" "}
-            <button
+            {/* <button
               type="button"
               className="calculatorPage_learnMoreBtn"
               onClick={() => setIsDetailsModalOpen(true)}
             >
               Learn more.
-            </button>
+            </button> */}
           </p>
         </div>
 
