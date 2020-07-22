@@ -47,3 +47,14 @@ button {
 *:before {
   box-sizing: border-box;
 }
+
+kbd {
+  font-size: 0.8em;
+  background: #d8d8d8;
+  border-radius: 0.25rem;
+  color: #333;
+  padding: 0.25rem 0.25rem;
+  margin: 0 0.4em;
+  box-shadow: 0 2px 0 0 #aaa;
+  text-transform: uppercase;
+}

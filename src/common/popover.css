@@ -7,4 +7,5 @@
 .popover_overlay {
   /* Overriding Reach UI's styles */
   background: transparent;
+  z-index: 100000;
 }

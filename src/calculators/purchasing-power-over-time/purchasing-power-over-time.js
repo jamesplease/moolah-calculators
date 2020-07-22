@@ -1,11 +1,9 @@
 import React, { useMemo, useState } from "react";
-import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-import { usePopper } from "react-popper";
 import IconChevronLeft from "materialish/icon-chevron-left";
 import { useConstant } from "core-hooks";
 import { formatForDisplay, inflationFromCpi } from "../../vendor/@moolah/lib";
-import Popover from "../../common/popover";
+import GetShareableLink from "../get-shareable-link";
 import Input from "../../common/input";
 import usePageTitle from "../../hooks/use-page-title";
 import useConfigForm from "../../hooks/use-config-form";
@@ -74,14 +72,6 @@ export default function PurchasingPowerOverTime() {
   const calculationUrl = useCalculationUrl(state);
 
   const [referenceElement, setReferenceElement] = React.useState(null);
-  const [popperElement, setPopperElement] = React.useState(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    placement: "bottom",
-  });
-
-  const popperOptions = {
-    placement: "bottom",
-  };
 
   const isSmallScreen = false;
 
@@ -213,21 +203,14 @@ export default function PurchasingPowerOverTime() {
           </div>
         </div>
       </div>
-      <Popover
-        className="sheet getShareableLink_popover"
-        aria-label="Share or bookmark calculation"
-        overlayClassName="getShareableLink_overlay"
+      <GetShareableLink
+        calculationUrl={calculationUrl}
         active={isShareLinkOpen}
+        onDismiss={() => setIsShareLinkOpen(false)}
         referenceElement={referenceElement}
         animation={animation}
         animationDuration={120}
-        popperOptions={popperOptions}
-        // disablePopper={isSmallScreen}
-        onDismiss={() => setIsShareLinkOpen(false)}
-        // onLeave={() => setShowSuccessMsg(null)}
-      >
-        hello
-      </Popover>
+      />
       {/* {ReactDOM.createPortal(
         <>
           {isShareLinkOpen && (
