@@ -137,6 +137,19 @@
   font-size: 1.25rem;
 }
 
+/* BLAH */
+
+.getShareableLink_popover {
+  --contentPadding: 1.125rem;
+  --popoverWidth: 23rem;
+
+  width: var(--popoverWidth);
+  /* This is required to avoid a frame of visibility when using JS animations! */
+  opacity: 0;
+}
+
+/* END BLAH */
+
 @media (max-width: 551px) {
   .calculatorPage {
     padding-top: 2rem;

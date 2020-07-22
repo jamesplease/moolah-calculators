@@ -1,0 +1,72 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: var(--mainColor);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: white;
+  padding: 0.5em 0.8em;
+  font-size: 1rem;
+  outline: none;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  user-select: none;
+  min-width: 5rem;
+}
+
+.button-transparent {
+  background: transparent;
+}
+
+.button-small {
+  font-size: 0.825rem;
+}
+
+.button-micro {
+  font-size: 0.8125rem;
+  padding: 0.4em 0.75em;
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.072);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.button:hover {
+  background-color: #7763ff;
+}
+
+.button:active {
+  background-color: #634dff;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.083);
+}
+
+.button-secondary:active {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.button-danger {
+  background-color: #ca1010;
+}
+
+.button-danger:hover {
+  background-color: #e01d1d;
+}
+
+.button.focus-visible {
+  box-shadow: 0 0 0 1px white, 0 0 0 4px var(--mainColor);
+}
+
+.button-secondary.focus-visible {
+  box-shadow: 0 0 0 2px var(--mainColor);
+}

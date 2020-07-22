@@ -3,7 +3,7 @@ import IconContentCopy from "materialish/icon-content-copy";
 import Modal from "../common/modal";
 import Input from "../common/input";
 
-export default function ShareLinkModal({ onClose, calculationUrl }) {
+export default function ShareLinkModalBody({ onClose, calculationUrl }) {
   const inputRef = useRef(null);
   const [showSuccessMsg, setShowSuccessMsg] = useState(null);
 

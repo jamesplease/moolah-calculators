@@ -1,0 +1,22 @@
+.overlay {
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity 190ms ease-out;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.overlay-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay-clear {
+  background: none;
+}

@@ -1,8 +1,11 @@
 import React, { useMemo, useState } from "react";
+import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
+import { usePopper } from "react-popper";
 import IconChevronLeft from "materialish/icon-chevron-left";
 import { useConstant } from "core-hooks";
 import { formatForDisplay, inflationFromCpi } from "../../vendor/@moolah/lib";
+import Popover from "../../common/popover";
 import Input from "../../common/input";
 import usePageTitle from "../../hooks/use-page-title";
 import useConfigForm from "../../hooks/use-config-form";
@@ -15,7 +18,12 @@ import {
 } from "../../utils/validators";
 import { years, dollars } from "../../utils/common-validators";
 import ShareLinkModal from "../share-link-modal";
+import CalculatorDetailsModal from "../calculator-details-modal";
 import useCalculationUrl from "../../hooks/use-calculation-url";
+import morph from "../../utils/animations/morph";
+import expand from "../../utils/animations/expand";
+
+const ANIMATION_DURATION = 150;
 
 function computeResult(inputs) {
   const { startValue, startYear, endYear } = inputs;
@@ -33,6 +41,7 @@ function computeResult(inputs) {
 export default function PurchasingPowerOverTime() {
   usePageTitle("Purchasing Power Over Time");
   const [isShareLinkOpen, setIsShareLinkOpen] = useState(false);
+  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
 
   const formConfig = useConstant(() => {
     return {
@@ -64,6 +73,30 @@ export default function PurchasingPowerOverTime() {
   const result = useMemo(() => computeResult(state), [state]);
   const calculationUrl = useCalculationUrl(state);
 
+  const [referenceElement, setReferenceElement] = React.useState(null);
+  const [popperElement, setPopperElement] = React.useState(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: "bottom",
+  });
+
+  const popperOptions = {
+    placement: "bottom",
+  };
+
+  const isSmallScreen = false;
+
+  const duration = ANIMATION_DURATION;
+
+  // TODO: remove REDUCE_MOTION from morph, and conditionally choose an animation
+  // instead.
+  const animation = useMemo(() => {
+    if (isSmallScreen) {
+      return expand(duration);
+    } else {
+      return morph(duration);
+    }
+  }, [isSmallScreen, duration]);
+
   return (
     <>
       <div className="calculatorPage">
@@ -85,11 +118,15 @@ export default function PurchasingPowerOverTime() {
           </p>
           <p>
             This calculator uses historical data to show you the impact that
-            inflation has had on the U.S. dollar.
-          </p>{" "}
-          {/* <button type="button" className="calculatorPage_learnMoreBtn">
-          Learn more.
-        </button> */}
+            inflation has had on the U.S. dollar.{" "}
+            <button
+              type="button"
+              className="calculatorPage_learnMoreBtn"
+              onClick={() => setIsDetailsModalOpen(true)}
+            >
+              Learn more.
+            </button>
+          </p>
         </div>
 
         <div className="calculator">
@@ -167,6 +204,7 @@ export default function PurchasingPowerOverTime() {
               <button
                 type="button"
                 className="calculator_shareBtn"
+                ref={setReferenceElement}
                 onClick={() => setIsShareLinkOpen(true)}
               >
                 Share this result
@@ -175,11 +213,57 @@ export default function PurchasingPowerOverTime() {
           </div>
         </div>
       </div>
-      <ShareLinkModal
+      <Popover
+        className="sheet getShareableLink_popover"
+        aria-label="Share or bookmark calculation"
+        overlayClassName="getShareableLink_overlay"
+        active={isShareLinkOpen}
+        referenceElement={referenceElement}
+        animation={animation}
+        animationDuration={120}
+        popperOptions={popperOptions}
+        // disablePopper={isSmallScreen}
+        onDismiss={() => setIsShareLinkOpen(false)}
+        // onLeave={() => setShowSuccessMsg(null)}
+      >
+        hello
+      </Popover>
+      {/* {ReactDOM.createPortal(
+        <>
+          {isShareLinkOpen && (
+            <>
+              <div
+                ref={setPopperElement}
+                className="sheet sheet-clearBg"
+                style={{
+                  ...styles.popper,
+                  zIndex: 1000,
+                }}
+                {...attributes.popper}
+              >
+                Popper
+              </div>
+              <div
+                className="overlay overlay-active overlay-clear"
+                onClick={() => setIsShareLinkOpen(false)}
+              />
+            </>
+          )}
+        </>,
+        document.querySelector("#popper-root")
+      )} */}
+      {/* <ShareLinkModal
         calculationUrl={calculationUrl}
         active={isShareLinkOpen}
         onClose={() => setIsShareLinkOpen(false)}
-      />
+      /> */}
+      <CalculatorDetailsModal
+        title="Purchasing Power Over Time"
+        active={isDetailsModalOpen}
+        onClose={() => setIsDetailsModalOpen(false)}
+      >
+        <p>These are the details of this calculator.</p>
+      </CalculatorDetailsModal>
     </>
   );
 }

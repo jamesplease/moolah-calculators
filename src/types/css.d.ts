@@ -11,5 +11,6 @@ declare module "csstype" {
   interface Properties {
     "--goodModal-timeoutMs"?: string;
     "--windowInnerHeight"?: string;
+    "--popover-animation-duration"?: string;
   }
 }

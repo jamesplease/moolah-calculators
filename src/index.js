@@ -1,3 +1,5 @@
+import "@reach/dialog/styles.css";
+import "focus-visible";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "react-router-dom";

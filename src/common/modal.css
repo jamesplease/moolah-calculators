@@ -1,11 +1,10 @@
 .goodModal {
-  --goodModal-borderColor: var(--containerBorderColor);
+  --goodModal-borderColor: transparent;
   --goodModal-contentPadding: 1rem;
-
-  border-radius: 1rem;
+  --goodModal-footerPaddingBottom: 1rem;
   background-color: white;
-  top: calc(0.05 * var(--windowInnerHeight));
-  max-height: calc(0.88 * var(--windowInnerHeight));
+  top: calc(0.2 * var(--windowInnerHeight));
+  max-height: calc(0.6 * var(--windowInnerHeight));
 }
 
 .modal_title {
@@ -16,8 +15,8 @@
 
 .modal_titleClose {
   background: transparent;
-  border: 2px solid transparent;
-  border-radius: 5px;
+  border: 3px solid transparent;
+  border-radius: 8px;
   outline: none;
   display: flex;
   align-items: center;
@@ -29,15 +28,19 @@
 }
 
 .modal_titleClose.focus-visible {
-  border-color: var(--accentColor);
+  border-color: var(--mainColor);
 }
 
 .modal_titleClose svg {
   fill: #777;
 }
 
+.modal_titleClose:hover {
+  background: #f3efff;
+}
+
 .modal_titleClose:hover svg {
-  fill: #aaa;
+  fill: var(--mainColor);
 }
 
 .modal_titleClose.focus-visible svg,
@@ -57,6 +60,7 @@
 .goodModal_body {
   color: #222;
   fill: #222;
+  padding-bottom: 0;
 }
 
 .goodModal_errorMsg {
@@ -91,6 +95,10 @@
 
 .goodModal_body li {
   line-height: 1.65;
+}
+
+.goodModal_body p {
+  margin: 0 0 1rem;
 }
 
 .goodModal_body p:last-child {
@@ -155,7 +163,7 @@
   .goodModal {
     --goodModal-width: 600px;
     --goodModal-contentPadding: 1.25rem;
-    border-radius: 0.5rem;
+    border-radius: 16px;
     box-shadow: 0 0px 2px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.15),
       0 2px 6px rgba(0, 0, 0, 0.15), 0 3px 8px rgba(0, 0, 0, 0.15),
       0 4px 10px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.15),
