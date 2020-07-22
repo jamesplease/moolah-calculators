@@ -1,0 +1,89 @@
+.getShareableLink_popover {
+  --contentPadding: 1.125rem;
+  --popoverWidth: 27rem;
+
+  width: var(--popoverWidth);
+  /* This is required to avoid a frame of visibility when using JS animations! */
+  opacity: 0;
+}
+
+.getShareableLink_inputContainer {
+  display: flex;
+}
+
+.getShareableLink_description {
+  font-size: 0.9375rem;
+  margin: 0 0 0.75rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.getShareableLink_input .input_innerInput {
+  width: 100%;
+}
+
+.getShareableLink_copyBtn {
+  font-size: 0.9375rem;
+}
+
+.getShareableLink_copyBtn svg {
+  fill: white;
+  margin-right: 0.3rem;
+}
+
+.getShareableLink_input {
+  flex: 1;
+  margin-right: 0.75rem;
+}
+
+.getShareableLink_result {
+  --textColor: #054805;
+  font-size: 0.9375rem;
+  background: #daffda;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: var(--textColor);
+}
+
+.getShareableLink_result svg {
+  fill: var(--textColor);
+  margin-right: 0.25rem;
+}
+
+.getShareableLink_result-info {
+  --textColor: #0066d4;
+
+  background: #dcefff;
+}
+
+@media (max-width: 551px) {
+  .getShareableLink_popover {
+    position: absolute;
+    --popoverWidth: 90vw;
+    --contentPadding: 1.25rem;
+    top: 40vw;
+    left: 5vw;
+  }
+
+  .getShareableLink_inputContainer {
+    flex-direction: column;
+  }
+
+  .getShareableLink_input {
+    padding: 0.5rem 0.5rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .getShareableLink_copyBtn {
+    font-size: 0.9375rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    justify-content: center;
+  }
+}

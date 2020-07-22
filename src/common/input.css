@@ -54,6 +54,10 @@ input[type="number"] {
   max-width: 100%;
 }
 
+.input-small .input_innerInput {
+  font-weight: 500;
+}
+
 .valueInput_prefix + .input_innerInput {
   padding-left: 0.3rem;
 }

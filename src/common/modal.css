@@ -1,0 +1,183 @@
+.goodModal {
+  --goodModal-borderColor: transparent;
+  --goodModal-contentPadding: 1rem;
+  --goodModal-footerPaddingBottom: 1rem;
+  background-color: white;
+  top: calc(0.2 * var(--windowInnerHeight));
+  max-height: calc(0.6 * var(--windowInnerHeight));
+}
+
+.modal_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal_titleClose {
+  background: transparent;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+}
+
+.modal_titleClose.focus-visible {
+  border-color: var(--mainColor);
+}
+
+.modal_titleClose svg {
+  fill: #777;
+}
+
+.modal_titleClose:hover {
+  background: #f3efff;
+}
+
+.modal_titleClose:hover svg {
+  fill: var(--mainColor);
+}
+
+.modal_titleClose.focus-visible svg,
+.modal_titleClose.focus-visible:hover svg {
+  fill: black;
+}
+
+.modal_titleClose:active svg {
+  fill: #666;
+}
+
+.goodModal_footer {
+  background-color: var(--containerBgColor);
+  justify-content: flex-end;
+}
+
+.goodModal_body {
+  color: #222;
+  fill: #222;
+  padding-bottom: 0;
+}
+
+.goodModal_errorMsg {
+  color: var(--dangerRed);
+  font-weight: 500;
+  padding: var(--goodModal-contentPadding);
+}
+
+.goodModal_input.input_error {
+  border-color: var(--dangerRed);
+}
+
+.goodModal_spinner {
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+
+.goodModal_overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal_touchIndicator {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 28px);
+  width: 56px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--touchIndicatorColor);
+}
+
+.goodModal_body li {
+  line-height: 1.65;
+}
+
+.goodModal_body p {
+  margin: 0 0 1rem;
+}
+
+.goodModal_body p:last-child {
+  margin-bottom: 0;
+}
+
+.goodModal_footer > .button {
+  margin-right: 10px;
+}
+
+.goodModal_footer > .button:last-child {
+  margin-right: 0;
+}
+
+.goodModal_footer > .modal_deleteBtn {
+  margin-right: auto;
+}
+
+@supports (padding: max(0px)) {
+  @media (max-width: 550px) {
+    .goodModal {
+      --goodModal-footerPaddingBottom: max(
+        var(--goodModal-contentPadding),
+        var(--safeAreaInsetBottom)
+      );
+    }
+  }
+}
+
+.goodModal_title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@media (max-width: 550px) {
+  .goodModal {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    height: 95%;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    left: 0;
+    opacity: 1;
+    /* The translateY factor comes from widthOfModal/heightOfPage, which is 100/95 */
+    transform: scale(1) translateY(105.3%);
+    will-change: transform;
+    transition: all 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    border-radius: 0.75rem 0.75rem 0 0;
+  }
+
+  .goodModal-active {
+    /* This comes from widthOfModal/heightOfPage - 1 */
+    transform: translateY(5.3%);
+  }
+}
+
+@media (min-width: 551px) {
+  .goodModal {
+    --goodModal-width: 600px;
+    --goodModal-contentPadding: 1.25rem;
+    border-radius: 16px;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.15),
+      0 2px 6px rgba(0, 0, 0, 0.15), 0 3px 8px rgba(0, 0, 0, 0.15),
+      0 4px 10px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.15),
+      0 6px 14px rgba(0, 0, 0, 0.15), 0 7px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .goodModal_title {
+    font-size: 1.4rem;
+    background: var(--containerBgColor);
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .goodModal_footer {
+    padding-top: 0.85em;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+}

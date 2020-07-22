@@ -81,8 +81,7 @@
 .calculator_resultsDescription {
   color: #424242;
   font-size: 0.875rem;
-  margin: 0 auto;
-  /* margin: 0 auto 1.375rem; */
+  margin: 0 auto 1.375rem;
   max-width: 75%;
   line-height: 1.65;
   text-align: center;

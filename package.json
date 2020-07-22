@@ -3,17 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@popperjs/core": "2.4.4",
+    "@reach/dialog": "0.10.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "constate": "^2.0.0",
-    "core-hooks": "^1.1.0-beta.0",
+    "core-hooks": "^1.2.0-beta.0",
+    "focus-trap-react": "7.0.1",
+    "focus-visible": "5.1.0",
     "lodash": "^4.17.19",
     "materialish": "^0.17.2",
+    "no-scroll": "2.1.1",
     "query-history": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-ga": "^3.1.2",
+    "react-popper": "2.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "stock-market-data": "^2.0.0"
@@ -44,7 +50,10 @@
   "devDependencies": {
     "@types/classnames": "^2.2.10",
     "@types/lodash": "^4.14.157",
+    "@types/no-scroll": "2.1.0",
     "@types/react": "^16.9.42",
+    "@types/react-dom": "16.9.8",
+    "@types/react-router-dom": "5.1.5",
     "typescript": "^3.9.6",
     "vercel": "^19.1.2"
   }

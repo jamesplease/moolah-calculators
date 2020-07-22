@@ -1,9 +1,21 @@
 @import "./styles/normalize.css";
+
+@import "./vendor/good-modal/good-modal.css";
+
+@import "./common/modal.css";
+@import "./common/popover.css";
+@import "./styles/button.css";
+@import "./styles/sheet.css";
+@import "./styles/overlay.css";
 @import "./styles/cursor.css";
 @import "./calculators/calculator.css";
 
 :root {
+  --weightedEase: cubic-bezier(0.5, 0, 0.1, 1);
+  --materialStandardEase: cubic-bezier(0.4, 0, 0.2, 1);
+
   --mainColor: #5b36ff;
+  --containerBorderColor: #ccc;
 }
 
 a {
@@ -34,4 +46,15 @@ button {
 *:after,
 *:before {
   box-sizing: border-box;
+}
+
+kbd {
+  font-size: 0.8em;
+  background: #d8d8d8;
+  border-radius: 0.25rem;
+  color: #333;
+  padding: 0.25rem 0.25rem;
+  margin: 0 0.4em;
+  box-shadow: 0 2px 0 0 #aaa;
+  text-transform: uppercase;
 }
