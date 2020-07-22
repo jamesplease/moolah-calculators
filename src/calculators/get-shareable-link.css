@@ -60,3 +60,30 @@
 
   background: #dcefff;
 }
+
+@media (max-width: 551px) {
+  .getShareableLink_popover {
+    position: absolute;
+    --popoverWidth: 90vw;
+    --contentPadding: 1.25rem;
+    top: 40vw;
+    left: 5vw;
+  }
+
+  .getShareableLink_inputContainer {
+    flex-direction: column;
+  }
+
+  .getShareableLink_input {
+    padding: 0.5rem 0.5rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .getShareableLink_copyBtn {
+    font-size: 0.9375rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    justify-content: center;
+  }
+}

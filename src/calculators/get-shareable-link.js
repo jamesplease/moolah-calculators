@@ -1,13 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import classnames from "classnames";
 import IconContentCopy from "materialish/icon-content-copy";
 import IconCheck from "materialish/icon-check";
 import "./get-shareable-link.css";
 import Popover from "../common/popover";
 import Input from "../common/input";
+import useOs from "../hooks/use-os";
+import useIsSmallScreen from "../hooks/use-is-small-screen";
+import morph from "../utils/animations/morph";
+import expand from "../utils/animations/expand";
+
+const ANIMATION_DURATION = 150;
 
 export default function GetShareableLink({ calculationUrl, ...otherProps }) {
   const inputRef = useRef(null);
+  const copyBtnRef = useRef(null);
   const popperOptions = {
     placement: "bottom",
     modifiers: [
@@ -21,7 +28,8 @@ export default function GetShareableLink({ calculationUrl, ...otherProps }) {
   };
   const [showSuccessMsg, setShowSuccessMsg] = useState(null);
 
-  const os = "mac";
+  const os = useOs();
+  const isSmallScreen = useIsSmallScreen();
 
   function onClickCopyBtn() {
     if (inputRef.current && typeof inputRef.current.select === "function") {
@@ -38,6 +46,18 @@ export default function GetShareableLink({ calculationUrl, ...otherProps }) {
     setShowSuccessMsg(success ? "SUCCEEDED" : "FAILED");
   }
 
+  const duration = ANIMATION_DURATION;
+
+  // TODO: remove REDUCE_MOTION from morph, and conditionally choose an animation
+  // instead.
+  const animation = useMemo(() => {
+    if (isSmallScreen) {
+      return expand(duration);
+    } else {
+      return morph(duration);
+    }
+  }, [isSmallScreen, duration]);
+
   return (
     <Popover
       {...otherProps}
@@ -45,8 +65,10 @@ export default function GetShareableLink({ calculationUrl, ...otherProps }) {
       aria-label="Share or bookmark calculation"
       overlayClassName="getShareableLink_overlay"
       popperOptions={popperOptions}
-      // disablePopper={isSmallScreen}
+      initialFocusRef={copyBtnRef}
+      disablePopper={isSmallScreen}
       onLeave={() => setShowSuccessMsg(null)}
+      animation={animation}
     >
       <div className="getShareableLink_description">
         Share or bookmark calculation with this URL:
@@ -60,6 +82,7 @@ export default function GetShareableLink({ calculationUrl, ...otherProps }) {
           onClick={(event) => event.target.select()}
         />
         <button
+          ref={copyBtnRef}
           type="button"
           className="button getShareableLink_copyBtn"
           onClick={onClickCopyBtn}
