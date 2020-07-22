@@ -75,7 +75,7 @@ export default function PurchasingPowerOverTime() {
             className="calculatorPage_backLinkIcon"
             size="1.125rem"
           />
-          View other calculators
+          View more calculators
         </Link>
         <h1 className="calculatorPage_title">Purchasing Power Over Time</h1>
         <div className="calculatorPage_subtitle">Calculator</div>

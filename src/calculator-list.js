@@ -16,8 +16,8 @@ export default [
   },
 
   {
-    url: "/compound-inflation",
-    name: "Compound Inflation",
+    url: "/compound-interest",
+    name: "Compound Interest",
     Component: CompoundInterest,
   },
 ];

@@ -83,7 +83,7 @@ export default function CompoundInterest() {
             className="calculatorPage_backLinkIcon"
             size="1.125rem"
           />
-          View other calculators
+          View more calculators
         </Link>
         <h1 className="calculatorPage_title">Compound Interest</h1>
         <div className="calculatorPage_subtitle">Calculator</div>
@@ -189,10 +189,11 @@ export default function CompoundInterest() {
               {formatForDisplay(result)}
             </div>
             <div className="calculator_resultsDescription">
-              {/* <b>{formatForDisplay(result)}</b> in the year {state.endYear} has
-              the same purchasing power that{" "}
-              <b>{formatForDisplay(state.principal)}</b> had in the year{" "}
-              {state.startYear}. */}
+              <b>{formatForDisplay(state.principal)}</b> will become{" "}
+              <b>{formatForDisplay(result)}</b> after {state.numberOfYears}{" "}
+              years with {state.interestRate}% compounding interest and an
+              annual contribution of{" "}
+              {formatForDisplay(state.annualContribution)}.
             </div>
             <div className="calculator_shareBtnContainer">
               <button
