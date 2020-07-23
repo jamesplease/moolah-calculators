@@ -10,7 +10,8 @@ input[type="number"] {
 
 .input {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   border-radius: 5px;
   white-space: nowrap;
 }
@@ -51,6 +52,8 @@ input[type="number"] {
   font-weight: bold;
   padding: 0.65em 0.75em;
   outline: none;
+  flex: 1;
+  min-width: 0;
   max-width: 100%;
 }
 

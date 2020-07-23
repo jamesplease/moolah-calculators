@@ -89,10 +89,10 @@ export default function CompoundInterest() {
         <div className="calculatorPage_subtitle">Calculator</div>
         <div className="calculatorPage_description">
           <p>
-            When you reinvest interest back into an investment, your future
-            interest will be larger, as the principal now includes that new
-            interest. This is sometimes referred to as "earning interest on
-            interest".
+            Compound interest occurs when you reinvest your interest, so that
+            the interest in the next period includes your principal investment
+            as well as the previous interest. This is sometimes referred to as
+            "earning interest on interest".
           </p>
           <p>
             Compound interest is an important concept in personal finance,
