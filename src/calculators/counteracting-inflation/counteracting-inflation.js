@@ -83,8 +83,8 @@ export default function CounteractingInflation() {
           </p>
           <p>
             This calculator shows you how many dollars you would need in a
-            particular year to maintain the same purchasing power as you started
-            with.
+            particular year to maintain the same purchasing power that you
+            started with.
           </p>
           {/* <button type="button" className="calculatorPage_learnMoreBtn">
           Learn more.
