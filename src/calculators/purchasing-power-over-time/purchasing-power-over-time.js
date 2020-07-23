@@ -166,7 +166,7 @@ export default function PurchasingPowerOverTime() {
             </div>
             <div className="calculator_resultsDescription">
               <b>{formatForDisplay(state.startValue)}</b> in the year{" "}
-              {state.startYear} will only have the purchasing power of{" "}
+              {state.startYear} only had the purchasing power of{" "}
               <b>{formatForDisplay(result)}</b> in the year {state.endYear}.
             </div>
             <div className="calculator_shareBtnContainer">
