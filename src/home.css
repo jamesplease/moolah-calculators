@@ -20,14 +20,20 @@
 .home_calculatorLink {
   color: #282828;
   display: block;
-  background: #f6f6f6;
+  background: #f1f1f1;
   border-radius: 10px;
+  border: 3px solid transparent;
   padding: 1rem;
   margin-bottom: 1rem;
+  outline: none;
+}
+
+.home_calculatorLink:focus {
+  border-color: var(--mainColor);
 }
 
 .home_calculatorLink:hover {
-  background: #f0f0f0;
+  background: #ececec;
 }
 
 @media (max-width: 551px) {
