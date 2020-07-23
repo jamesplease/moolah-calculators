@@ -1,68 +1,60 @@
-import React, { useMemo, useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import IconChevronLeft from "materialish/icon-chevron-left";
 import { useConstant } from "core-hooks";
-import { formatForDisplay, inflationFromCpi } from "../../vendor/@moolah/lib";
+import { formatForDisplay } from "../../vendor/@moolah/lib";
 import GetShareableLink from "../get-shareable-link";
 import Input from "../../common/input";
 import usePageTitle from "../../hooks/use-page-title";
 import useConfigForm from "../../hooks/use-config-form";
 import useCalculatorState from "../../hooks/use-calculator-state/index";
-import marketDataByYear from "../../utils/market-data-by-year";
-import {
-  withinYearLimit,
-  lessThanValue,
-  greaterThanValue,
-} from "../../utils/validators";
-import { years, dollars } from "../../utils/common-validators";
-import CalculatorDetailsModal from "../calculator-details-modal";
+import { numberOfYears, dollars, percent } from "../../utils/common-validators";
 import useCalculationUrl from "../../hooks/use-calculation-url";
+import computeCompoundInterest from "./compute-compound-interest";
 
 function computeResult(inputs) {
-  const { startValue, startYear, endYear } = inputs;
+  const { interestRate } = inputs;
 
-  const marketData = marketDataByYear();
-  const startCpi = marketData[startYear].cpi;
-  const endCpi = marketData[endYear].cpi;
-
-  const inflation = inflationFromCpi({ startCpi, endCpi });
-
-  const rawNumber = Number(startValue) / inflation;
-  return rawNumber;
+  return computeCompoundInterest({
+    ...inputs,
+    interestRate: interestRate / 100,
+  });
 }
 
-export default function PurchasingPowerOverTime() {
-  usePageTitle("Purchasing Power Over Time");
+export default function CompoundInterest() {
+  usePageTitle("Compound Interest");
   const [isShareLinkOpen, setIsShareLinkOpen] = useState(false);
-  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
   const [referenceElement, setReferenceElement] = useState(null);
 
   const formConfig = useConstant(() => {
     return {
-      startValue: {
+      principal: {
         type: "number",
         initialValue: 10000,
         validators: [...dollars],
       },
-      startYear: {
+      annualContribution: {
         type: "number",
-        initialValue: 2010,
-        validators: [...years, withinYearLimit, lessThanValue("endYear")],
+        initialValue: 0,
+        validators: [...dollars],
       },
-      endYear: {
+      numberOfYears: {
         type: "number",
-        initialValue: 2020,
-        validators: [...years, withinYearLimit, greaterThanValue("startYear")],
+        initialValue: 10,
+        validators: [...numberOfYears],
+      },
+      interestRate: {
+        type: "number",
+        initialValue: 7,
+        validators: [...percent],
       },
     };
   });
 
-  const configForm = useConfigForm({
+  const { state, getProps } = useConfigForm({
     formConfig,
     useSourceOfTruth: () => useCalculatorState(formConfig),
   });
-
-  const { state, getProps } = configForm;
 
   const result = useMemo(() => computeResult(state), [state]);
   const calculationUrl = useCalculationUrl(state);
@@ -77,26 +69,23 @@ export default function PurchasingPowerOverTime() {
           />
           View more calculators
         </Link>
-        <h1 className="calculatorPage_title">Purchasing Power Over Time</h1>
+        <h1 className="calculatorPage_title">Compound Interest</h1>
         <div className="calculatorPage_subtitle">Calculator</div>
         <div className="calculatorPage_description">
           <p>
-            Over time, the purchasing power of the dollar tends to decrease:
-            this phenomenon is called inflation. What this means is that if you
-            receive $1 and choose to hold onto it, that dollar will
-            progressively become less valuable as years pass.
+            Compound interest occurs when you reinvest your interest, so that
+            the interest in the next period includes your principal investment
+            as well as the previous interest. This is sometimes referred to as
+            "earning interest on interest".
           </p>
           <p>
-            This calculator uses historical data to show you the impact that
-            inflation has had on the U.S. dollar.{" "}
-            {/* <button
-              type="button"
-              className="calculatorPage_learnMoreBtn"
-              onClick={() => setIsDetailsModalOpen(true)}
-            >
-              Learn more.
-            </button> */}
+            Compound interest is an important concept in personal finance,
+            because it allows us to accumulate wealth much more quickly than we
+            could otherwise.
           </p>
+          {/* <button type="button" className="calculatorPage_learnMoreBtn">
+          Learn more.
+        </button> */}
         </div>
 
         <div className="calculator">
@@ -105,12 +94,30 @@ export default function PurchasingPowerOverTime() {
               <div className="calculator_rowItem">
                 <div className="inputLabel_container">
                   <label htmlFor="valueInStartYear" className="inputLabel">
-                    Value In Start Year
+                    Principal
                   </label>
                 </div>
                 <Input
-                  {...getProps("startValue", {
+                  {...getProps("principal", {
                     id: "valueInStartYear",
+                    className: "calculator_largeInput",
+                    type: "number",
+                    prefix: "$",
+                    style: {
+                      fontSize: "1.25rem",
+                    },
+                  })}
+                />
+              </div>
+              <div className="calculator_rowItem">
+                <div className="inputLabel_container">
+                  <label htmlFor="annualContribution" className="inputLabel">
+                    Annual Contribution
+                  </label>
+                </div>
+                <Input
+                  {...getProps("annualContribution", {
+                    id: "annualContribution",
                     className: "calculator_largeInput",
                     type: "number",
                     prefix: "$",
@@ -125,13 +132,13 @@ export default function PurchasingPowerOverTime() {
             <div className="calculator_row">
               <div className="calculator_rowItem">
                 <div className="inputLabel_container">
-                  <label htmlFor="startYear" className="inputLabel">
-                    Start Year
+                  <label htmlFor="numberOfYears" className="inputLabel">
+                    Number of Years
                   </label>
                 </div>
                 <Input
-                  {...getProps("startYear", {
-                    id: "startYear",
+                  {...getProps("numberOfYears", {
+                    id: "numberOfYears",
                     className: "calculator_largeInput",
                     type: "number",
                     style: {
@@ -140,18 +147,18 @@ export default function PurchasingPowerOverTime() {
                   })}
                 />
               </div>
-
               <div className="calculator_rowItem">
                 <div className="inputLabel_container">
-                  <label htmlFor="endYear" className="inputLabel">
-                    End Year
+                  <label htmlFor="interestRate" className="inputLabel">
+                    Interest Rate
                   </label>
                 </div>
                 <Input
-                  {...getProps("endYear", {
+                  {...getProps("interestRate", {
                     id: "endYear",
                     className: "calculator_largeInput",
                     type: "number",
+                    suffix: "%",
                     style: {
                       fontSize: "1.25rem",
                     },
@@ -166,9 +173,11 @@ export default function PurchasingPowerOverTime() {
               {formatForDisplay(result)}
             </div>
             <div className="calculator_resultsDescription">
-              <b>{formatForDisplay(state.startValue)}</b> in the year{" "}
-              {state.startYear} will only have the purchasing power of{" "}
-              <b>{formatForDisplay(result)}</b> in the year {state.endYear}.
+              <b>{formatForDisplay(state.principal)}</b> will become{" "}
+              <b>{formatForDisplay(result)}</b> after {state.numberOfYears}{" "}
+              years with {state.interestRate}% compounding interest and an
+              annual contribution of{" "}
+              {formatForDisplay(state.annualContribution)}.
             </div>
             <div className="calculator_shareBtnContainer">
               <button
@@ -190,13 +199,6 @@ export default function PurchasingPowerOverTime() {
         referenceElement={referenceElement}
         animationDuration={120}
       />
-      <CalculatorDetailsModal
-        title="Purchasing Power Over Time"
-        active={isDetailsModalOpen}
-        onClose={() => setIsDetailsModalOpen(false)}
-      >
-        <p>These are the details of this calculator.</p>
-      </CalculatorDetailsModal>
     </>
   );
 }

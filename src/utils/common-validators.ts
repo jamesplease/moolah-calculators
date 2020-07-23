@@ -23,6 +23,12 @@ export const percent: Validator[] = [
   tooLarge(100),
 ];
 
+export const numberOfYears: Validator[] = [
+  isRequiredNumber,
+  numberRequired,
+  integerRequired,
+];
+
 export const years: Validator[] = [
   isRequiredNumber,
   numberRequired,
