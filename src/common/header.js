@@ -8,7 +8,7 @@ export default function Header() {
       <Link to="/">
         <img
           src="/moolah-calculators.png"
-          class="header_logo"
+          className="header_logo"
           alt="Moolah Calculators"
         />
       </Link>
