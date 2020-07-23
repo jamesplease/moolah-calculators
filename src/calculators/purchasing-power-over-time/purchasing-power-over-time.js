@@ -78,7 +78,6 @@ export default function PurchasingPowerOverTime() {
           View more calculators
         </Link>
         <h1 className="calculatorPage_title">Purchasing Power Over Time</h1>
-        <div className="calculatorPage_subtitle">Calculator</div>
         <div className="calculatorPage_description">
           <p>
             Over time, the purchasing power of the dollar tends to decrease:

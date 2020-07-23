@@ -74,7 +74,6 @@ export default function CounteractingInflation() {
           View more calculators
         </Link>
         <h1 className="calculatorPage_title">Counteracting Inflation</h1>
-        <div className="calculatorPage_subtitle">Calculator</div>
         <div className="calculatorPage_description">
           <p>
             Over time, the purchasing power of the dollar tends to decrease:

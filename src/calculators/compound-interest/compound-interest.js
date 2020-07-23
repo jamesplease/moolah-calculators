@@ -70,7 +70,6 @@ export default function CompoundInterest() {
           View more calculators
         </Link>
         <h1 className="calculatorPage_title">Compound Interest</h1>
-        <div className="calculatorPage_subtitle">Calculator</div>
         <div className="calculatorPage_description">
           <p>
             Compound interest occurs when you reinvest your interest, so that
