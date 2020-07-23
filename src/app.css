@@ -3,4 +3,10 @@
   max-width: 35rem;
   margin: 0 auto;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }

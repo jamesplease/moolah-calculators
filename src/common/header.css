@@ -1,0 +1,10 @@
+header {
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_logo {
+  height: 3rem;
+}

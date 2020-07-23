@@ -1,0 +1,30 @@
+footer {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  color: #757575;
+  font-size: 0.875rem;
+}
+
+.footer_links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.footer_link {
+  font-weight: normal;
+  color: #757575;
+  text-decoration: underline;
+  margin-right: 1rem;
+}
+
+.footer_link:last-child {
+  margin-right: 0;
+}
+
+.footer_linkLogo {
+  fill: #757575;
+  width: 1rem;
+  height: 1rem;
+}

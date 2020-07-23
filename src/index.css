@@ -33,6 +33,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html,
+body,
+#root,
+.app,
+.app_contents {
+  min-height: var(--appHeight);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -48,6 +56,13 @@ button {
   box-sizing: border-box;
 }
 
+.heading1 {
+  color: #282828;
+  font-weight: 900;
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+}
+
 kbd {
   font-size: 0.8em;
   background: #d8d8d8;
@@ -57,4 +72,8 @@ kbd {
   margin: 0 0.4em;
   box-shadow: 0 2px 0 0 #aaa;
   text-transform: uppercase;
+}
+
+p {
+  line-height: 1.45;
 }
