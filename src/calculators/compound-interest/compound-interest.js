@@ -2,39 +2,23 @@ import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import IconChevronLeft from "materialish/icon-chevron-left";
 import { useConstant } from "core-hooks";
-import { formatForDisplay, inflationFromCpi } from "../../vendor/@moolah/lib";
+import { formatForDisplay } from "../../vendor/@moolah/lib";
 import GetShareableLink from "../get-shareable-link";
 import Input from "../../common/input";
 import usePageTitle from "../../hooks/use-page-title";
 import useConfigForm from "../../hooks/use-config-form";
 import useCalculatorState from "../../hooks/use-calculator-state/index";
-import marketDataByYear from "../../utils/market-data-by-year";
-import {
-  withinYearLimit,
-  lessThanValue,
-  greaterThanValue,
-} from "../../utils/validators";
 import { numberOfYears, dollars, percent } from "../../utils/common-validators";
 import useCalculationUrl from "../../hooks/use-calculation-url";
 import computeCompoundInterest from "./compute-compound-interest";
 
 function computeResult(inputs) {
-  // const { principal, startYear, endYear } = inputs;
   const { interestRate } = inputs;
 
   return computeCompoundInterest({
     ...inputs,
     interestRate: interestRate / 100,
   });
-
-  // const marketData = marketDataByYear();
-  // const startCpi = marketData[startYear].cpi;
-  // const endCpi = marketData[endYear].cpi;
-
-  // const inflation = inflationFromCpi({ startCpi, endCpi });
-
-  // const rawNumber = Number(principal) * inflation;
-  // return rawNumber;
 }
 
 export default function CompoundInterest() {
