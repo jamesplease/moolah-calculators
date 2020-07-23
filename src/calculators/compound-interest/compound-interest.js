@@ -154,7 +154,7 @@ export default function CompoundInterest() {
                 </div>
                 <Input
                   {...getProps("interestRate", {
-                    id: "endYear",
+                    id: "interestRate",
                     className: "calculator_largeInput",
                     type: "number",
                     suffix: "%",
