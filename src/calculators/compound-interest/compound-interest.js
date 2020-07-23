@@ -150,7 +150,7 @@ export default function CompoundInterest() {
               <div className="calculator_rowItem">
                 <div className="inputLabel_container">
                   <label htmlFor="interestRate" className="inputLabel">
-                    Interest Rate
+                    Annual Interest Rate
                   </label>
                 </div>
                 <Input
@@ -175,9 +175,8 @@ export default function CompoundInterest() {
             <div className="calculator_resultsDescription">
               <b>{formatForDisplay(state.principal)}</b> will become{" "}
               <b>{formatForDisplay(result)}</b> after {state.numberOfYears}{" "}
-              years with {state.interestRate}% compounding interest and an
-              annual contribution of{" "}
-              {formatForDisplay(state.annualContribution)}.
+              years with {state.interestRate}% annual interest and an annual
+              contribution of {formatForDisplay(state.annualContribution)}.
             </div>
             <div className="calculator_shareBtnContainer">
               <button
