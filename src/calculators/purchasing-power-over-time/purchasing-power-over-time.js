@@ -67,6 +67,8 @@ export default function PurchasingPowerOverTime() {
   const result = useMemo(() => computeResult(state), [state]);
   const calculationUrl = useCalculationUrl(state);
 
+  const purchasingPowerDecreased = result < state.startValue;
+
   return (
     <>
       <div className="calculatorPage">
@@ -165,9 +167,20 @@ export default function PurchasingPowerOverTime() {
               {formatForDisplay(result)}
             </div>
             <div className="calculator_resultsDescription">
-              <b>{formatForDisplay(state.startValue)}</b> in the year{" "}
-              {state.startYear} only had the purchasing power of{" "}
-              <b>{formatForDisplay(result)}</b> in the year {state.endYear}.
+              {purchasingPowerDecreased && (
+                <>
+                  <b>{formatForDisplay(state.startValue)}</b> in the year{" "}
+                  {state.startYear} only had the purchasing power of{" "}
+                  <b>{formatForDisplay(result)}</b> in the year {state.endYear}.
+                </>
+              )}
+              {!purchasingPowerDecreased && (
+                <>
+                  <b>{formatForDisplay(state.startValue)}</b> in the year{" "}
+                  {state.startYear} had the purchasing power of{" "}
+                  <b>{formatForDisplay(result)}</b> in the year {state.endYear}.
+                </>
+              )}
             </div>
             <div className="calculator_shareBtnContainer">
               <button
