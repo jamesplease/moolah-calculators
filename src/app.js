@@ -8,9 +8,11 @@ import About from "./meta/about";
 import Contact from "./meta/contact";
 import calculatorList from "./calculator-list";
 import useSetAppHeight from "./hooks/use-set-app-height";
+import useScrollToTop from "./hooks/use-scroll-to-top";
 
 function App() {
   useSetAppHeight();
+  useScrollToTop();
 
   return (
     <div className="app">
