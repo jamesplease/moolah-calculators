@@ -1,0 +1,11 @@
+:root {
+  --safeAreaInsetTop: 0;
+  --safeAreaInsetBottom: 0;
+  --safeAreaInsetLeft: 0;
+  --safeAreaInsetRight: 0;
+
+  --safeAreaInsetTop: env(safe-area-inset-top);
+  --safeAreaInsetBottom: env(safe-area-inset-bottom);
+  --safeAreaInsetLeft: env(safe-area-inset-left);
+  --safeAreaInsetRight: env(safe-area-inset-right);
+}

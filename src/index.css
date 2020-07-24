@@ -2,6 +2,8 @@
 
 @import "./vendor/good-modal/good-modal.css";
 
+@import "./styles/variables.css";
+
 @import "./common/modal.css";
 @import "./common/popover.css";
 @import "./styles/button.css";
