@@ -1,4 +1,4 @@
-import { maxDollarInput } from "../vendor/@moolah/lib";
+import { maxDollarInput } from "@moolah/lib";
 import { Validator } from "../vendor/form/types";
 import {
   isRequiredNumber,

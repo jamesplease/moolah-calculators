@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { maxDollarInput } from "../vendor/@moolah/lib";
+import { maxDollarInput } from "@moolah/lib";
 import { ValuesObject, NumberInput, Validator } from "../vendor/form/types";
 
 const yearRange = {

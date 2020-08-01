@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@moolah/lib": "0.0.1",
     "@popperjs/core": "2.4.4",
     "@reach/dialog": "0.10.5",
     "@reach/visually-hidden": "0.10.4",

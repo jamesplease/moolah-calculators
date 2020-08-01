@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import IconChevronLeft from "materialish/icon-chevron-left";
 import { useConstant } from "core-hooks";
-import { formatForDisplay, inflationFromCpi } from "../../vendor/@moolah/lib";
+import { formatForDisplay, inflationFromCpi } from "@moolah/lib";
 import GetShareableLink from "../get-shareable-link";
 import Input from "../../common/input";
 import usePageTitle from "../../hooks/use-page-title";
