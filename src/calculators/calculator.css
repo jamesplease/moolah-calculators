@@ -8,6 +8,7 @@
   align-items: center;
   position: relative;
   left: -4px;
+  padding-right: 4px;
 }
 
 .calculatorPage_backLinkIcon {
@@ -92,7 +93,11 @@
   color: #5b36ff;
   border: none;
   padding: 0.5em 1em;
-  background: #f3efff;
+  background: rgba(91, 54, 255, 0.095);
+}
+
+.calculator_shareBtn:hover {
+  background: rgba(91, 54, 255, 0.13);
 }
 
 .inputLabel_container {

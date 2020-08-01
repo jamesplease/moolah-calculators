@@ -46,6 +46,7 @@
 }
 
 .home_launchCalculatorLink {
+  position: relative;
   font-size: 0.875rem;
   font-weight: 500;
   padding: 0.45rem 0.8rem;
@@ -53,6 +54,26 @@
   color: white;
   background: #3c66ff;
   background: radial-gradient(circle at 0%, #6f58ff, #2e6bff);
+  outline: none;
+}
+
+.home_launchCalculatorLink.focus-visible {
+  box-shadow: 0 0 0 1px white, 0 0 0 3px #3c66ff;
+}
+
+.home_launchCalculatorLink:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.075);
+  opacity: 0;
+}
+
+.home_launchCalculatorLink:hover:after {
+  opacity: 1;
 }
 
 .home_calculatorTags {
