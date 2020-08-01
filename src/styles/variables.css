@@ -1,4 +1,7 @@
 :root {
+  --appWidth: 35rem;
+  --contentPadding: 1rem;
+
   --safeAreaInsetTop: 0;
   --safeAreaInsetBottom: 0;
   --safeAreaInsetLeft: 0;

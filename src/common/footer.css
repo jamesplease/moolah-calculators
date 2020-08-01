@@ -1,5 +1,8 @@
 footer {
-  padding: 1rem 0 calc(var(--safeAreaInsetBottom) + 1rem);
+  width: 100%;
+  max-width: var(--appWidth);
+  margin: 0 auto;
+  padding: 1rem var(--contentPadding) calc(var(--safeAreaInsetBottom) + 1rem);
   display: flex;
   align-items: center;
   color: #757575;

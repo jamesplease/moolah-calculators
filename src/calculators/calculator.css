@@ -1,5 +1,5 @@
 .calculatorPage {
-  padding: 3rem 0 2rem;
+  padding: 0 0 2rem;
 }
 
 .calculatorPage_backLink {
@@ -136,10 +136,6 @@
 }
 
 @media (max-width: 551px) {
-  .calculatorPage {
-    padding-top: 2rem;
-  }
-
   .calculatorPage_title {
     margin-bottom: 0.5rem;
   }

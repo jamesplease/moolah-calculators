@@ -6,6 +6,7 @@ import Header from "./common/header";
 import Footer from "./common/footer";
 import About from "./meta/about";
 import Contact from "./meta/contact";
+import NotFound from "./meta/not-found";
 import calculatorList from "./calculator-list";
 import useSetAppHeight from "./hooks/use-set-app-height";
 import useScrollToTop from "./hooks/use-scroll-to-top";
@@ -17,9 +18,7 @@ function App() {
   return (
     <div className="app">
       <div className="app_contents">
-        <Route path={["/contact", "/about"]}>
-          <Header />
-        </Route>
+        <Header />
         <main>
           <Switch>
             <Route path="/" exact component={Home} />
@@ -33,6 +32,7 @@ function App() {
                 component={calculator.Component}
               />
             ))}
+            <Route component={NotFound} />
           </Switch>
         </main>
         <Footer />
